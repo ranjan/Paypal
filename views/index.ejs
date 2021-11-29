@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PayPal Node App</title>
+  </head>
+
+  <body>
+    <h1>Item 1</h1>
+    <h2>Buy For $25</h2>
+    <form action="/pay" method="post">
+      <input type="submit" value="Buy">
+    </form>
+
+    <form action="/create-product" method="post">
+      <input type="submit" value="Create Product">
+    </form>
+
+    <form action="/create-plan" method="post">
+      <input type="submit" value="Create Plan">
+    </form>
+
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AfYydU6ft4RaMSMdOGe5qLNAeZjJhN3z4WHAhxuHf-IyI_osgGNvdQ9ZGXC-ZW7jysC-fTiJf1UFz0OD&vault=true&intent=subscription">
+    </script> 
+
+    <div id="paypal-button-container"></div>
+      <script>
+        paypal.Buttons({
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({
+              'plan_id': 'P-65S69853WJ361281BMGS7EBY' 
+            });
+          },
+          onApprove: function(data, actions) {
+            alert('You have successfully created subscription ' + data.subscriptionID); // Optional message given to subscriber
+            // Return user and subscription id
+            // This subscription id can be used to cancel user subscription
+          }
+        }).render('#paypal-button-container'); // Renders the PayPal button
+    </script>
+  </body>
+</html>

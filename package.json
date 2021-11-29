@@ -1,0 +1,19 @@
+{
+  "name": "node_paypal_sample",
+  "version": "1.0.0",
+  "description": "Sample paypal app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Ranjan Kumar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "paypal-rest-sdk": "^1.7.1",
+    "request": "^2.88.2"
+  }
+}
